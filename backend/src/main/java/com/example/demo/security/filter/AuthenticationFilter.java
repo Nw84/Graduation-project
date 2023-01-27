@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -61,7 +62,9 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
                         .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.TOKEN_EXPIRATION))
                         .sign(Algorithm.HMAC512(SecurityConstants.SECRET_KEY));
                         response.addHeader((SecurityConstants.AUTHORIZATION), SecurityConstants.BEARER + token);
-                        //add cookie http only
+                        //Cookie httpOnlyCookie = new Cookie(token, token);
+                        //httpOnlyCookie.setHttpOnly(true);
+                        //response.addCookie(httpOnlyCookie);
             }
 
     }

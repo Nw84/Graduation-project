@@ -23,7 +23,7 @@ public class JWTAutorizationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
                 String header = request.getHeader("Authorization");
-                //request.getcookies ?
+                //Cookie cookies[] = request.getCookies();
 
                 if(header == null || !header.startsWith(SecurityConstants.BEARER)) {
                     filterChain.doFilter(request, response);

@@ -42,5 +42,4 @@ public class ImageController {
         imageService.deleteImage(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
      }
-    
 }
